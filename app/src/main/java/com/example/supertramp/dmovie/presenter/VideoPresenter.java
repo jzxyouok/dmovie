@@ -1,5 +1,6 @@
 package com.example.supertramp.dmovie.presenter;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.util.Log;
 import com.example.supertramp.dmovie.model.api.VideoAPI;
 import com.example.supertramp.dmovie.model.entity.BaseCallEntity;
 import com.example.supertramp.dmovie.model.entity.video.VideoDetailEntity;
+import com.example.supertramp.dmovie.utils.Constants;
 import com.example.supertramp.dmovie.view.activity.VideoContract;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,15 +38,17 @@ public class VideoPresenter implements VideoContract.Presenter {
             @Override
             public void onResponse(Call<BaseCallEntity<VideoDetailEntity>> call, Response<BaseCallEntity<VideoDetailEntity>> response)
             {
+                if (((Activity)context).isFinishing())
+                {
+                    return;
+                }
                 VideoDetailEntity entity = response.body().getData();
                 view.updateView(entity);
             }
 
             @Override
             public void onFailure(Call<BaseCallEntity<VideoDetailEntity>> call, Throwable t)
-            {
-                Log.i("error", t.toString());
-            }
+            {}
         });
 
     }

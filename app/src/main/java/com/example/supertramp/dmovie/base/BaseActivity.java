@@ -17,9 +17,6 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends Activity {
 
     @Nullable
-    @BindView(R.id.iv_back)
-    protected ImageView ivBack;
-    @Nullable
     @BindView(R.id.tv_title)
     protected TextView tvTitle;
     @Nullable

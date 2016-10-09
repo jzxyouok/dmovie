@@ -59,7 +59,6 @@ public class CustomMediaControl extends BaseFrameLayout implements IMediaControl
     StringBuilder               mFormatBuilder;
     Formatter mFormatter;
 
-    private ImageView ivBack;
     private ImageView ivFull;
     private ImageView ivPlay;
     private TextView mEndTime, mCurrentTime;
@@ -217,12 +216,10 @@ public class CustomMediaControl extends BaseFrameLayout implements IMediaControl
         FrameLayout.LayoutParams params;
         if (orientation != Configuration.ORIENTATION_PORTRAIT)
         {
-            ivBack.setVisibility(View.GONE);
             params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
         else
         {
-            ivBack.setVisibility(View.VISIBLE);
             params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtils.dip2px(getContext(), 240));
         }
         mRoot.setLayoutParams(params);

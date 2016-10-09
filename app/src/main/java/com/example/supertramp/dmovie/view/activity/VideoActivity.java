@@ -137,13 +137,11 @@ public class VideoActivity extends BaseActivity implements VideoContract.View, B
         {
             params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             videoView.setLayoutParams(params);
-            ivBack.setVisibility(View.GONE);
         }
         else
         {
             params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtils.dip2px(this, 240));
             videoView.setLayoutParams(params);
-            ivBack.setVisibility(View.VISIBLE);
         }
         videoView.resetMediaControl(orientation);
 
